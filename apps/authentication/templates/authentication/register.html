@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block page_title %}{% trans "Registration" %}{% endblock page_title %}
+
+{% block content %}
+<h1>{% trans "Registration Page" %}</h1>
+{% for message in messages %}
+<p>{{message}}</p>
+{% endfor %}
+<form method='POST'>
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit">
+    {{form_error}}
+</form>
+<a href="{% url 'auth:login' %}">{% trans "Log In" %}</a>
+{% endblock content %}

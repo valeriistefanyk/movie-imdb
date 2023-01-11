@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block page_title %}{% trans "Account" %}{% endblock page_title %}
+
+{% block content %}
+<h1>{% trans "Account Page" %}</h1>
+<p>{{request.user}}</p>
+<br/>
+<p>
+    <a href="{% url 'auth:logout' %}">{% trans "Log Out" %}</a>
+</p>
+{% endblock content %}

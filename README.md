@@ -12,3 +12,6 @@ This project is intended to be an example of a django proj. It takes data from i
 
 ## Configuration
 Project is configured through settings package
+
+## Deployment
+Project is automatically deployed via circle.ci

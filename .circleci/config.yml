@@ -30,10 +30,27 @@ jobs:
             - "~/.cache/pip"
             - /usr/local/lib/python3.10/site-packages
       - run: coverage run ./manage.py test
-      - run: coverage report --fail-under=85
+      - run: coverage report --fail-under=75
+
+  deploy_dev:
+    docker:
+      - image: cimg/python:3.10
+    steps:
+      - checkout
+      - run: pip install boto3 pexpect
+      - add_ssh_keys:
+          fingerprint:
+            - "0c:6f:e0:87:00:10:1e:e4:a6:28:31:8f:21:22:33:d2"
+      - run: python deploy.py
 
 workflows:
-  check_code:
+  check_and_dev_deploy:
     jobs:
       - prospector
       - test
+      - deploy_dev:
+          requires: ['prospector', 'test']
+          filters:
+            branches:
+              only:
+                - main

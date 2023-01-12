@@ -1,7 +1,14 @@
-from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
+from django.views.generic import ListView
+from .models import Movie, Person
 
 
-@login_required
-def index(request):
-    return render(request, 'movie/index.html')
+class MovieListView(ListView):
+    model = Movie
+    context_object_name = "movies"
+    paginate_by = 20
+
+
+class PersonListView(ListView):
+    model = Person
+    context_object_name = "persons"
+    paginate_by = 20

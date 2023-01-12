@@ -15,3 +15,9 @@ Project is configured through settings package
 
 ## Deployment
 Project is automatically deployed via circle.ci
+
+## Custom Management Commands
+You can use custom management commands for fill in imdb movie data. There are 3 commands:
+- run `./manage.py import_movies --file dataset/title.basics.tsv` to create movies
+- run `./manage.py import_persons --file dataset/name.basics.tsv` to create persons
+- run `./manage.py import_movieperson --file dataset/title.principals.tsv` to create intermediate table person-movie

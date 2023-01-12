@@ -2,7 +2,7 @@
 This project is intended to be an example of a django proj. It takes data from imdb and displays it.
 
 ## DEMO
-[movie.phabious.store](movie.phabious.store "The IMDB movie data").
+[movie.phabious.store](https://movie.phabious.store/ "The IMDB movie data").
 
 
 ## Quickstart

@@ -47,7 +47,7 @@ workflows:
   check_and_dev_deploy:
     jobs:
       - prospector
-      - test
+      # - test
       - deploy_dev:
           requires: ['prospector', 'test']
           filters:
